@@ -31,14 +31,31 @@ public class MainActivity extends AppCompatActivity {
         final TextView txtBMICategory = findViewById(R.id.txtBMICategory);
 
         btnCalculate.setOnClickListener(v -> {
-            // === Person2: เขียนโค้ดคำนวณ BMI ตรงนี้ ===
-            // double weight = ...
-            // double height = ...
-            // double bmi = weight / (height * height);
+            try {
+                // input weight and height
+                String weightStr = edtWeight.getText().toString().trim();
+                String heightStr = edtHeight.getText().toString().trim();
 
+                // chack speacbar
+                if (!weightStr.isEmpty() && !heightStr.isEmpty()) {
+                    double weight = Double.parseDouble(weightStr);
+                    double height = Double.parseDouble(heightStr) / 100.0; // cm -> m
+
+                    // find BMI
+                    double bmi = weight / (height * height);
+
+                    // show BMI
+                    txtBMIResult.setText(String.format("%.2f", bmi));
+                } else {
+                    txtBMIResult.setText("Incomplete information filled in");
+                }
+            } catch (Exception e) {
+                txtBMIResult.setText("Incorrect information");
+            }
             // === Person3: เขียนโค้ดแสดงผลลัพธ์และ Category ตรงนี้ ===
             // txtBMIResult.setText(String.format("%.2f", bmi));
             // txtBMICategory.setText(getBMICategory(bmi));
+
         });
     }
 
