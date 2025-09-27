@@ -9,7 +9,7 @@
     android:gravity="center"
     android:background="@android:color/background_light">
 
-    <!-- ซ้าย: Input -->
+    <!-- Left: inputs -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -17,58 +17,65 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Weight -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/weight"
             android:textStyle="bold"
+            android:textSize="16sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeMaxTextSize="18sp"
+            android:autoSizeStepGranularity="1sp"
             android:layout_marginBottom="4dp" />
 
         <EditText
             android:id="@+id/edtWeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
             android:inputType="numberDecimal"
             android:hint="@string/weightHint"
+            android:textSize="16sp"
             android:padding="12dp"
             android:background="@android:drawable/edit_text"
             android:layout_marginBottom="16dp" />
 
-        <!-- Height -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/height"
             android:textStyle="bold"
+            android:textSize="16sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeMaxTextSize="18sp"
+            android:autoSizeStepGranularity="1sp"
             android:layout_marginBottom="4dp" />
 
         <EditText
             android:id="@+id/edtHeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
             android:inputType="numberDecimal"
             android:hint="@string/heightHint"
+            android:textSize="16sp"
             android:padding="12dp"
             android:background="@android:drawable/edit_text"
             android:layout_marginBottom="24dp" />
 
-        <!-- Calculate Button -->
         <Button
             android:id="@+id/btnCalculate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/calculate"
+            android:textSize="16sp"
             android:padding="12dp"
             android:layout_marginBottom="24dp"
             android:background="@android:color/darker_gray"
             android:textColor="@android:color/white" />
-
     </LinearLayout>
 
-    <!-- ขวา: Results -->
+    <!-- Right: results -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -76,7 +83,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- BMI Result -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,21 +97,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/bmi"
                 android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="18sp"
+                android:autoSizeStepGranularity="1sp"/>
 
             <TextView
                 android:id="@+id/txtBMIResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultBMI"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"
+                android:textSize="24sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="16sp"
+                android:autoSizeMaxTextSize="32sp"
+                android:autoSizeStepGranularity="1sp"
                 android:gravity="center"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp" />
         </LinearLayout>
 
-        <!-- BMI Category -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -119,20 +133,27 @@
                 android:layout_height="wrap_content"
                 android:text="@string/consider"
                 android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="18sp"
+                android:autoSizeStepGranularity="1sp"/>
 
             <TextView
                 android:id="@+id/txtBMICategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/defaultCategory"
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textStyle="bold"
+                android:textSize="20sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="14sp"
+                android:autoSizeMaxTextSize="26sp"
+                android:autoSizeStepGranularity="1sp"
                 android:gravity="center"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp" />
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>
