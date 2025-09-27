@@ -3,15 +3,15 @@
     <string name="app_name">BodyMass</string>
     <string name="calculate">คำนวน</string>
     <string name="defaultCategory">-</string>
-    <string name="consider"></string>
+    <string name="consider">พิจารณา ใน:</string>
     <string name="defaultBMI">0.0</string>
-    <string name="weight"></string>
+    <string name="bmi">ค่าดัชนีมวลกาย:</string>
+    <string name="height">ความสูง (เซนติเมตร)</string>
+    <string name="weight">น้ำหนัก (กิโลกรัม)</string>
     <string name="weightHint">65</string>
     <string name="heightHint">168</string>
-    <string name="bmi"></string>
-    <string name="height"></string>
-    <string name="underweight"></string>
-    <string name="normal"></string>
-    <string name="overweight"></string>
-    <string name="obese"></string>
+    <string name="underweight">น้ำหนักตัวต่ำกว่าเกณฑ์</string>
+    <string name="normal">น้ำหนักตัวปกติ</string>
+    <string name="overweight">น้ำหนักตัวสูงกว่าเกณฑ์</string>
+    <string name="obese">น้ำหนักตัวอยู่ในภาวะอ้วน</string>
 </resources>
