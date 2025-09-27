@@ -14,4 +14,5 @@
     <string name="normal">Normal</string>
     <string name="overweight">Overweight</string>
     <string name="obese">Obese</string>
+    <string name="massBody">MassBody</string>
 </resources>

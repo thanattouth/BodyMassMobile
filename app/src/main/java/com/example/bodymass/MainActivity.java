@@ -51,14 +51,29 @@ public class MainActivity extends AppCompatActivity {
                     txtBMICategory.setText(getBMICategory(bmi));
                 } else {
                     txtBMIResult.setText("Incomplete information filled in");
+                    txtBMICategory.setText("");
                 }
             } catch (Exception e) {
                 txtBMIResult.setText("Incorrect information");
+                txtBMICategory.setText("");
             }
-            // === Person3: เขียนโค้ดแสดงผลลัพธ์และ Category ตรงนี้ ===
-            // txtBMIResult.setText(String.format("%.2f", bmi));
-            // txtBMICategory.setText(getBMICategory(bmi));
         });
+
+        // ถ้ามีการ restore state หลัง rotate/เปลี่ยนภาษา
+        if (savedInstanceState != null) {
+            txtBMIResult.setText(savedInstanceState.getString("bmi_result", getString(R.string.defaultBMI)));
+            txtBMICategory.setText(savedInstanceState.getString("bmi_category", getString(R.string.defaultCategory)));
+        }
+    }
+
+    // เก็บค่า BMI และ Category ก่อนที่ Activity จะถูก destroy
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        final TextView txtBMIResult = findViewById(R.id.txtBMIResult);
+        final TextView txtBMICategory = findViewById(R.id.txtBMICategory);
+        outState.putString("bmi_result", txtBMIResult.getText().toString());
+        outState.putString("bmi_category", txtBMICategory.getText().toString());
     }
 
     // === Person3: Helper function สำหรับแสดงผล Category ===
@@ -80,4 +95,5 @@ public class MainActivity extends AppCompatActivity {
             recreate();
         }
     }
+
 }
