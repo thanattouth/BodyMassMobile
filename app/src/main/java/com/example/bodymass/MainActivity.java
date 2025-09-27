@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.content.res.Configuration; // 👈 Apawan Kongkanan: import Configuration สำหรับ onConfigurationChanged
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -60,11 +62,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // === Person3: Helper function สำหรับแสดงผล Category ===
-    // เช่น "Underweight", "Normal", "Overweight", "Obese"
     private String getBMICategory(double bmi) {
         if (bmi < 18.5) return getString(R.string.underweight);
         else if (bmi < 25) return getString(R.string.normal);
         else if (bmi < 30) return getString(R.string.overweight);
         else return getString(R.string.obese);
+    }
+
+    // : รองรับ Runtime Changes (ผู้ใช้เปลี่ยน Font size หรือหมุนจอ)
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // : เมื่อผู้ใช้เปลี่ยน Font size ใน Settings ของเครื่อง
+        // ให้รีโหลด Activity เพื่ออัปเดตขนาดตัวอักษรทั้งหมดอัตโนมัติ
+        if (newConfig.fontScale != 1f) {
+            recreate();
+        }
     }
 }

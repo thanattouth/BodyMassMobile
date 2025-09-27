@@ -8,61 +8,67 @@
     android:gravity="center_horizontal"
     android:background="@android:color/background_light">
 
-    <!-- TODO: Person 2 ใช้ EditText นี้สำหรับกรอกน้ำหนัก -->
-    <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
+    <!-- Weight -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/weight"
         android:textStyle="bold"
+        android:textSize="16sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="18sp"
+        android:autoSizeStepGranularity="1sp"
         android:layout_marginBottom="4dp" />
 
-    <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
     <EditText
         android:id="@+id/edtWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:inputType="numberDecimal"
         android:hint="@string/weightHint"
+        android:textSize="16sp"
         android:padding="12dp"
         android:background="@android:drawable/edit_text"
         android:layout_marginBottom="16dp" />
 
-    <!-- TODO: Person 2 ใช้ EditText นี้สำหรับกรอกส่วนสูง -->
-    <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
+    <!-- Height -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/height"
         android:textStyle="bold"
+        android:textSize="16sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeMaxTextSize="18sp"
+        android:autoSizeStepGranularity="1sp"
         android:layout_marginBottom="4dp" />
 
-    <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
     <EditText
         android:id="@+id/edtHeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:inputType="numberDecimal"
         android:hint="@string/heightHint"
+        android:textSize="16sp"
         android:padding="12dp"
         android:background="@android:drawable/edit_text"
         android:layout_marginBottom="24dp" />
 
-    <!-- TODO: Person 2 เขียน Event กดปุ่มเพื่อคำนวณ BMI -->
-    <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
+    <!-- Calculate -->
     <Button
         android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/calculate"
+        android:textSize="16sp"
         android:padding="12dp"
         android:layout_marginBottom="24dp"
         android:background="@android:color/darker_gray"
         android:textColor="@android:color/white" />
 
-    <!-- TODO: Person 2 แสดงผล BMI ที่คำนวณได้ -->
+    <!-- BMI Result -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,28 +78,35 @@
         android:elevation="4dp"
         android:layout_marginBottom="16dp">
 
-        <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bmi"
             android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeMaxTextSize="18sp"
+            android:autoSizeStepGranularity="1sp"/>
 
-        <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
         <TextView
             android:id="@+id/txtBMIResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/defaultBMI"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"
+            android:textSize="24sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="16sp"
+            android:autoSizeMaxTextSize="32sp"
+            android:autoSizeStepGranularity="1sp"
             android:gravity="center"
             android:paddingTop="8dp"
             android:paddingBottom="8dp" />
     </LinearLayout>
 
-    <!-- TODO: Person 3 แสดงผลการจัดประเภท -->
+    <!-- BMI Category -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,22 +115,29 @@
         android:background="@android:color/white"
         android:elevation="4dp">
 
-        <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/consider"
             android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeMaxTextSize="18sp"
+            android:autoSizeStepGranularity="1sp"/>
 
-        <!-- TODO: Person5 - กำหนด textSize เป็น sp ที่นี่ -->
         <TextView
             android:id="@+id/txtBMICategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/defaultCategory"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"
+            android:textSize="20sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="14sp"
+            android:autoSizeMaxTextSize="26sp"
+            android:autoSizeStepGranularity="1sp"
             android:gravity="center"
             android:paddingTop="8dp"
             android:paddingBottom="8dp" />
