@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // show BMI
                     txtBMIResult.setText(String.format("%.2f", bmi));
+                    txtBMICategory.setText(getBMICategory(bmi));
                 } else {
                     txtBMIResult.setText("Incomplete information filled in");
                 }
@@ -57,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             // === Person3: เขียนโค้ดแสดงผลลัพธ์และ Category ตรงนี้ ===
             // txtBMIResult.setText(String.format("%.2f", bmi));
             // txtBMICategory.setText(getBMICategory(bmi));
-
         });
     }
 
