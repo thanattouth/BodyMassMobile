@@ -1,0 +1,17 @@
+<!-- TODO: Person 4 ใช้ Edit translations หรือแก้ไขในไฟล์ string.xml (th) แปลงเป็นภาษาไทย -->
+<resources>
+    <string name="app_name">BodyMass</string>
+    <string name="calculate">calculate</string>
+    <string name="defaultCategory">-</string>
+    <string name="consider">Considered in:</string>
+    <string name="defaultBMI">0.0</string>
+    <string name="bmi">Body Mass Index:</string>
+    <string name="height">Height (centimeter)</string>
+    <string name="weight">Weight (kilogram)</string>
+    <string name="weightHint">65</string>
+    <string name="heightHint">168</string>
+    <string name="underweight">Underweight</string>
+    <string name="normal">Normal</string>
+    <string name="overweight">Overweight</string>
+    <string name="obese">Obese</string>
+</resources>

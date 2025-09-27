@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="edtWeight" type="id" />
+    <item name="edtHeight" type="id" />
+    <item name="txtBMIResult" type="id" />
+    <item name="txtBMICategory" type="id" />
+    <item name="btnCalculate" type="id" />
+</resources>
