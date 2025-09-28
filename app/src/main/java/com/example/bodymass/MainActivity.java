@@ -70,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
                     txtBMICategory.setTextColor(color);
                 } else {
                     txtBMIResult.setText("Incomplete information filled in");
-                    txtBMICategory.setText("");
+                    txtBMICategory.setText("-");
                 }
             } catch (Exception e) {
                 txtBMIResult.setText("Incorrect information");
-                txtBMICategory.setText("");
+                txtBMICategory.setText("Incorrect information");
             }
         });
 
