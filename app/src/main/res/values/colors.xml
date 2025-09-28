@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bmi_underweight">#3498DB</color>
+    <color name="bmi_normal">#2ECC71</color>
+    <color name="bmi_overweight">#F39C12</color>
+    <color name="bmi_obese">#E74C3C</color>
 </resources>

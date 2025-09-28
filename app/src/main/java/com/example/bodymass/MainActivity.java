@@ -1,6 +1,8 @@
 package com.example.bodymass;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,12 +11,14 @@ import android.content.res.Configuration; // 👈 Apawan Kongkanan: import Confi
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         final TextView txtBMIResult = findViewById(R.id.txtBMIResult);
         final TextView txtBMICategory = findViewById(R.id.txtBMICategory);
 
+        edtWeight.setFilters(new InputFilter[]{ new DecimalDigitsInputFilter(4, 3) });
+        edtHeight.setFilters(new InputFilter[]{ new DecimalDigitsInputFilter(4, 3) });
+
         btnCalculate.setOnClickListener(v -> {
             try {
                 // input weight and height
@@ -47,8 +54,20 @@ public class MainActivity extends AppCompatActivity {
                     double bmi = weight / (height * height);
 
                     // show BMI
-                    txtBMIResult.setText(String.format("%.2f", bmi));
+                    txtBMIResult.setText(String.format("%,.2f", bmi));
                     txtBMICategory.setText(getBMICategory(bmi));
+
+                    int color;
+                    if (bmi < 18.5) {
+                        color = ContextCompat.getColor(this, R.color.bmi_underweight); // สีฟ้า
+                    } else if (bmi < 25) {
+                        color = ContextCompat.getColor(this, R.color.bmi_normal);      // สีเขียว
+                    } else if (bmi < 30) {
+                        color = ContextCompat.getColor(this, R.color.bmi_overweight); // สีส้ม
+                    } else {
+                        color = ContextCompat.getColor(this, R.color.bmi_obese);       // สีแดง
+                    }
+                    txtBMICategory.setTextColor(color);
                 } else {
                     txtBMIResult.setText("Incomplete information filled in");
                     txtBMICategory.setText("");
@@ -61,8 +80,14 @@ public class MainActivity extends AppCompatActivity {
 
         // ถ้ามีการ restore state หลัง rotate/เปลี่ยนภาษา
         if (savedInstanceState != null) {
+            // คืนค่าข้อความ (เหมือนเดิม)
             txtBMIResult.setText(savedInstanceState.getString("bmi_result", getString(R.string.defaultBMI)));
             txtBMICategory.setText(savedInstanceState.getString("bmi_category", getString(R.string.defaultCategory)));
+
+            // เพิ่มการคืนค่าสีให้กับ Category
+            // ดึงค่าสีที่บันทึกไว้ หากไม่มี ให้ใช้สีดำเป็นค่าเริ่มต้น
+            int color = savedInstanceState.getInt("bmi_category_color", ContextCompat.getColor(this, android.R.color.black));
+            txtBMICategory.setTextColor(color);
         }
     }
 
@@ -72,8 +97,13 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         final TextView txtBMIResult = findViewById(R.id.txtBMIResult);
         final TextView txtBMICategory = findViewById(R.id.txtBMICategory);
+
+        // บันทึกข้อความ (เหมือนเดิม)
         outState.putString("bmi_result", txtBMIResult.getText().toString());
         outState.putString("bmi_category", txtBMICategory.getText().toString());
+
+        // เพิ่มการบันทึกสีปัจจุบันของ Category
+        outState.putInt("bmi_category_color", txtBMICategory.getCurrentTextColor());
     }
 
     // === Person3: Helper function สำหรับแสดงผล Category ===
@@ -95,5 +125,4 @@ public class MainActivity extends AppCompatActivity {
             recreate();
         }
     }
-
 }

@@ -42,11 +42,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:autofillHints=""
             android:background="@drawable/custom_edit_text_bg"
             android:hint="@string/weightHint"
             android:inputType="numberDecimal"
             android:padding="14dp"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:digits="0123456789." />
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,11 +64,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:autofillHints=""
             android:background="@drawable/custom_edit_text_bg"
             android:hint="@string/heightHint"
             android:inputType="numberDecimal"
             android:padding="14dp"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:digits="0123456789." />
 
         <Button
             android:id="@+id/btnCalculate"
